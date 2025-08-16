@@ -1,19 +1,23 @@
-from typing import Callable
+from typing import Callable, Any, Dict
 
 from pydantic import BaseModel
+
+from model.event import Event
 
 
 class UserPrompt(BaseModel):
     prompt: str
 
+
 class AgentResponse:
     def __init__(
             self,
             message: str = None,
-            user_prompt: UserPrompt = None,
+            event: Event = None,
     ):
         self.message = message
-        self.user_prompt = user_prompt
+        self.event = event
+
 
 class ToolInfo:
     """
@@ -25,17 +29,17 @@ class ToolInfo:
             params (List[str]): Parameters that LLL will try to extract.
             function (Callable): Callable Function implementation.
         """
+
     def __init__(
             self,
             name: str = None,
             description: str = None,
-            params: list[str] = None,
             function: Callable = None,
     ):
         self.name = name
         self.description = description
-        self.params = params
         self.function = function
+
 
 class ChatMessage:
     """
@@ -45,6 +49,7 @@ class ChatMessage:
             role (str): user or assistance.
             content (str): Content of the message.
     """
+
     def __init__(
             self,
             role: str = None,

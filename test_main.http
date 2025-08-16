@@ -1,24 +1,14 @@
 # Test your FastAPI endpoints
 
-POST http://127.0.0.1:8000/chat
-Content-Type: application/json
-
-{
-  "prompt": "Estou testando o agente"
-}
-
 ###
-POST http://127.0.0.1:8000/chat
+POST http://127.0.0.1:8000/event
 Content-Type: application/json
 
 {
-  "prompt": "I want the Sleep Report for the patient S21"
-}
-
-###
-POST http://127.0.0.1:8000/chat
-Content-Type: application/json
-
-{
-  "prompt": "the date is last monday"
+  "task_name": "GlycemiaLevelTask",
+  "data": 180,
+  "metadata": {
+    "patient": "Mario Gotz",
+    "diabetes_family_history": true
+  }
 }

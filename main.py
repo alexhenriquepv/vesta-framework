@@ -2,25 +2,21 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi import HTTPException
 
-from agent.factory import create_agent
-from model.models import UserPrompt
+from core.EventOrchestrator import EventOrchestrator
+from model.models import Event
 
 load_dotenv()
 
 app = FastAPI(
-    title="Conversational Agent",
-    description="Agente tha uses LLMs for user interaction.",
+    title="Event Driven Agent",
+    description="Agent that uses sensor data input and LLMs for response",
 )
 
-try:
-    agent = create_agent()
-except Exception as e:
-    print(f"Failed to create agent: {e}")
+event_orchestrator = EventOrchestrator()
 
-
-@app.post("/chat")
-def chat_with_agent(user_prompt: UserPrompt):
+@app.post("/event")
+def app_handle_event(event: Event):
     try:
-        return agent.handle_prompt(user_prompt)
+        return event_orchestrator.handle_event(event)
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
