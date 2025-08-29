@@ -18,10 +18,6 @@ class PPGAuthTask(TaskBase):
         self.execution_result: dict[str, Any] = {}
 
     @property
-    def name(self) -> str:
-        return "PPGAuth"
-
-    @property
     def description(self) -> str:
         return (
             "This task uses a pre-trained PPG Auth model to predict who is the patient. "
@@ -40,7 +36,7 @@ class PPGAuthTask(TaskBase):
 
     def preprocess(self, ppg_values):
         filtered = self.butter_lowpass_filter(ppg_values, cutoff=15, order=4)
-        if len(filtered) != 5000:
+        if len(filtered) != self.fs:
             raise ValueError(f"Sample must have {self.fs} items.")
         arr = (filtered - filtered.mean()) / filtered.std()
         import numpy as np
@@ -49,7 +45,9 @@ class PPGAuthTask(TaskBase):
 
     @staticmethod
     def find_patient_by_index(patient_index):
-        return "Jon Travolta"
+        if patient_index > 5:
+            return "Jon Travolta"
+        return "James Bond"
 
     def run(self, event: Event):
         x = self.preprocess(event.data)

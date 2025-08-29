@@ -6,3 +6,4 @@ PyYAML~=6.0.2
 protobuf~=6.31.1
 tensorflow~=2.20.0
 scipy~=1.13.1
+requests~=2.32.4

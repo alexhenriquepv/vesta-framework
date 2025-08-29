@@ -39,6 +39,7 @@ class Planner:
                 task_result=task.result,
                 parameters=event.model_dump_json()
             )
+            log(prompt, LogCategory.USER)
             return prompt
         except KeyError as e:
             log(f"Error formatting prompt template. Missing key: {e}", LogCategory.END)

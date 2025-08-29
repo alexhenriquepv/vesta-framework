@@ -9,3 +9,4 @@ prompt: |
   {parameters}
   
   Now, give a friendly response to an user that is collecting health data over wearables devices.
+  If you have enough information, call him by name and other personal attributes
