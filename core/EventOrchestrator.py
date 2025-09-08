@@ -1,5 +1,5 @@
 from core.planner import Planner
-from model.models import Event
+from model.event import Event
 from tasks.glycemia_level_task import GlycemiaLevelTask
 from tasks.ppg_auth_task import PPGAuthTask
 

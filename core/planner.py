@@ -3,7 +3,7 @@ from typing import Dict, Any
 import yaml
 
 from core.gemini import GeminiLLM
-from model.models import AgentResponse, Event
+from model.agent_response import AgentResponse, Event
 from resources.logger import log, LogCategory
 from tasks.task_base import TaskBase
 

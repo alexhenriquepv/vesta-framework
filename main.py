@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi import HTTPException
 
 from core.EventOrchestrator import EventOrchestrator
-from model.models import Event
+from model.event import Event
 
 load_dotenv()
 

@@ -1,6 +1,6 @@
 import requests
 
-from model.models import Event
+from model.event import Event
 from tasks.task_base import TaskBase
 
 

@@ -1,6 +1,6 @@
 from typing import Any
 
-from model.models import Event
+from model.event import Event
 import tensorflow as tf
 from scipy.signal import butter, filtfilt
 from tasks.task_base import TaskBase
