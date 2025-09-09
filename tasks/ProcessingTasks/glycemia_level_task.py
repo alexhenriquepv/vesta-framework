@@ -1,10 +1,10 @@
 import requests
 
 from model.event import Event
-from tasks.task_base import TaskBase
+from tasks.ProcessingTasks.processing_task import ProcessingTask
 
 
-class GlycemiaLevelTask(TaskBase):
+class GlycemiaLevelProcessingTask(ProcessingTask):
 
     def __init__(self):
         self.execution_result = ""

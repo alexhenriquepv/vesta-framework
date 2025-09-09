@@ -3,10 +3,10 @@ from typing import Any
 from model.event import Event
 import tensorflow as tf
 from scipy.signal import butter, filtfilt
-from tasks.task_base import TaskBase
+from tasks.ProcessingTasks.processing_task import ProcessingTask
 
 
-class PPGAuthTask(TaskBase):
+class PPGAuthProcessingTask(ProcessingTask):
 
     def __init__(self):
         self.model = tf.keras.models.load_model("resources/ppg-auth.keras")

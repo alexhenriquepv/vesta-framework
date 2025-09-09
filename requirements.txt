@@ -1,3 +1,5 @@
+uvicorn
+protobuf
 scipy
 tensorflow
 pydantic

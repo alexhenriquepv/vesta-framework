@@ -20,3 +20,7 @@ def app_handle_event(event: Event):
         return event_orchestrator.handle_event(event)
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
