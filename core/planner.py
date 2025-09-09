@@ -1,6 +1,6 @@
 from core.gemini import GeminiLLM
 from model.agent_response import AgentResponse, Event
-from tasks.ProcessingTasks.processing_task import ProcessingTask
+from tasks.processing.processing_task import ProcessingTask
 
 
 class Planner:

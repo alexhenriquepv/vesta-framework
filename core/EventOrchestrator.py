@@ -1,16 +1,12 @@
 from core.planner import Planner
 from model.event import Event
-from tasks.ProcessingTasks.movement_detection import MovementDetectionProcessingTask
+from tasks.task_registry import TaskRegistry
 
 
 class EventOrchestrator:
     def __init__(self):
         self.planner = Planner()
-        self.processing_tasks = [
-            #GlycemiaLevelTask,
-            # PPGAuthTask,
-            MovementDetectionProcessingTask
-        ]
+        self.processing_tasks = TaskRegistry.get_processing_tasks()
 
     def handle_event(self, event: Event):
         for task in self.processing_tasks:

@@ -17,6 +17,19 @@ POST http://127.0.0.1:8000/event
 Content-Type: application/json
 
 {
+    "task_name": "LowBatteryTask",
+    "data": {
+        "smart_speaker": 50,
+        "security_camera_front": 12,
+        "smart_lock_back": 18
+    }
+}
+
+###
+POST http://127.0.0.1:8000/event
+Content-Type: application/json
+
+{
   "task_name": "PPGAuthTask",
   "data": [
     -0.000754,-0.000887,-0.000988,-0.001075,-0.001159,-0.001255,-0.001374,-0.001519,-0.001677,
