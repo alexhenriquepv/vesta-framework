@@ -34,4 +34,4 @@ jobs:
       - name: Deploy docs
         run: mkdocs gh-deploy --force
         env:
-          GH_TOKEN: ${{ secrets.PC_VENT }}
+          GITHUB_TOKEN: ${{ secrets.PC_VENT }}
