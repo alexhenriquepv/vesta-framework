@@ -1,0 +1,25 @@
+site_name: Event Driven Agent
+repo_url: https://github.com/alexhenriquepv/vesta-framework
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.expand
+    - search.suggest
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.append(".")
+
+nav:
+  - Home: index.md
+  - Guide:
+      - Installation Guide: install.md
+      - Action Task: actions.md
+      - Processing Task: processing.md
