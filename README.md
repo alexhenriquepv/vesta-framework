@@ -1,30 +1,30 @@
 # Vesta Framework
 
-## 🧠 Sobre o Projeto
+## 🧠 About project
 
-O **Vesta Framework** é uma arquitetura de agente inteligente projetada para o processamento de dados em tempo real.
-Sua principal proposta é atuar como um núcleo de inteligência, integrando informações de diversas fontes,
-como dispositivos vestíveis e pesquisas acadêmicas.
-O framework foi construído para ser a base de soluções inovadoras de monitoramento e análise.
+The **Event-Driven Agent Framework** is a Python framework designed to build intelligent agents that process events 
+from sensors, wearable devices, or any external system.  
+It combines **ProcessingTasks**, which transform raw events into structured insights, and **ActionTasks**, 
+which allow the agent to trigger external actions (e.g., turning on alarms, sending notifications, or interacting with third-party APIs).
 
-## 🚀 Como Executar
+### Installing
 
-### Pré-requisitos
-
-Certifique-se de que você tem o Python 3.9+ instalado.
-
-### Instalação
-
-1.  Instale as dependências:
+1.  Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
 
-2.  Configure sua **chave de API da Google Gemini** no arquivo `.env`.
+2.  Setup **Google Gemini API KEY** in the file `.env`.
 
-3. Altere as configurações de prompt em `resources/config.yaml`.
+3. Change prompt configurations in `resources/config.yaml`.
 
 4.  Execute o projeto:
     ```bash
     python main.py
     ```
+
+## 📚 Documentation
+
+The full documentation, including installation instructions, task creation guides, and usage examples, is available online:
+
+[Visit the Docs](https://your-username.github.io/event-driven-agent/)
