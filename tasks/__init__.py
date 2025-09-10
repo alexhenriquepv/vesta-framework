@@ -1,0 +1,17 @@
+from tasks.actions.alert_emergency_contact import alert_emergency_contact_declaration
+from tasks.actions.send_push_notification import send_push_notification_declaration
+from tasks.actions.turn_alarm_on import turn_alarm_on_declaration
+from tasks.processing.battery_level import LowBatteryTask
+from tasks.processing.glycemia_level import GlycemiaLevelTask
+from tasks.processing.movement_detection import MovementDetectionTask
+from tasks.task_registry import TaskRegistry
+
+# processing
+TaskRegistry.register_processing(MovementDetectionTask)
+TaskRegistry.register_processing(LowBatteryTask)
+TaskRegistry.register_processing(GlycemiaLevelTask)
+
+# actions (FunctionDeclarations)
+TaskRegistry.register_action(turn_alarm_on_declaration)
+TaskRegistry.register_action(send_push_notification_declaration)
+TaskRegistry.register_action(alert_emergency_contact_declaration)
