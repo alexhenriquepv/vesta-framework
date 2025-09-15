@@ -35,6 +35,8 @@ GOOGLE_API_KEY=your_api_key_here
   uvicorn main:app --reload
 ```
 
-Open Swagger UI:
+## 6. Open Swagger UI:
 
-👉 http://127.0.0.1:8000/docs
+```bash 
+http://localhost:8000/docs
+``

@@ -16,5 +16,7 @@ nav:
   - Home: index.md
   - Guide:
       - Installation Guide: install.md
+      - Framework Modules: modules.md
+      - Use Case Example: usecase.md
       - Action Task: actions.md
       - Processing Task: processing.md

@@ -25,39 +25,42 @@ which allow the agent to trigger external actions (e.g., turning on alarms, send
   Orchestrates how events are processed and decides which actions (if any) should be executed. The planner leverages an LLM to interpret context and select appropriate actions.
 
 - **TaskRegistry**  
-  A central registry for all `ProcessingTasks` and `ActionTasks`. Developers extend the framework by registering new tasks.
+  A central registry for all `ProcessingTasks` and `ActionTasks`. The framework may be extended by registering new tasks.
 
 ---
 
 ## ⚙️ Architecture Overview
 
-Incoming Event --> EventOrchestrator --> ProcessingTask --> Planner (LLM) --> ActionTask(s)
+![vesta-architecture.png](vesta-architecture.png)
 
-1. **EventOrchestrator** receives an event and delegates it to the appropriate ProcessingTask.
-2. **The ProcessingTask** executes business logic and produces structured results.
-3. **The Planner interprets** the result using an LLM and selects one or more ActionTasks.
-4. The chosen ActionTasks are executed, producing side effects (e.g., notifications, alarms).
+1. The **Event Orchestrator** receives an external event and delegates it to the appropriate Processing Task.
+2. **The ProcessingTask** executes business logic and produces structured results (Processing Task Result).
+3. **The Planner interprets** the Task result using an LLM and selects one or more Action Tasks to be executed.
+4. The chosen Action Tasks are executed, producing side effects (e.g., notifications, alarms).
 
 ---
 
 ## 🚀 Example Flow
 
-1. A movement is detected by the security system.  
-2. `MovementDetectionTask` runs and returns:  
-   ```json
-    {"object_detected": "person"}
-3. The Planner interprets this and decides to trigger the alarm:
-    ```json
-    {
-      "function_call": {
-        "name": "turn_alarm_on",
-        "args": { "alarm_type": "Noise" }
-      }
-    }
-4. The ActionTask executes and turns on the noise alarm.
+A movement is detected by the security system, triggering an action called `MovementDetectionTask`.
+The `MovementDetectionTask` will be executed, returning a structured result:
+```json
+{"object_detected": "person"}
+```
+The Planner interprets this and decides to execute an Action Task called `turn_alarm_on`:
+```json
+{
+  "function_call": {
+    "name": "turn_alarm_on",
+    "args": { "alarm_type": "Noise" }
+  }
+}
+```
 
-## 📚 Documentation
+## 📚 Guide
 
-- [Installation Guide](install.md)  
-- [Creating ActionTasks](actions.md)
-- [Creating ProcessingTasks](processing.md)  
+- [Installation Guide](install.md)
+- [Famework Modules](modules.md)
+- [Use Case example](usecase.md)
+- [Creating Action Tasks](actions.md)
+- [Creating Processing Tasks](processing.md)  
